@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="sp" xmlns:th="http://www.thymeleaf.org" xmlns:spring="http://www.w3.org/1999/XSL/Transform">
+
+<head th:fragment="css">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>BarCamp2020</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/scrolling-nav.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav" th:fragment="navigation">
+    <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top" th:text="#{inicio}">Inicio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/" th:text="#{inicio_sesion}"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header class="bg-primary text-white" th:fragment="header">
+    <div class="container text-center">
+<!--        <h1 th:text="#{bienvenida}"></h1>-->
+        <h1 th:text="BarCamp2020"></h1>
+<!--        <p class="lead" th:text="#{slogan}"></p>-->
+    </div>
+</header>
+
+<div class="card mx-auto" style="width: 50rem;">
+    <div class="card-body">
+        <form role="form" method="post">
+            <div class="card-header">
+                <label>Encuesta</label>
+            </div>
+            <div class="form-group align-items-center">
+                <label>¿Las charlas donde usted participó cumplieron con sus expectativas?</label>
+            </div>
+            <div class="form-group align-items-center">
+                <label>Puntuacion: </label>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadioInline1">1</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadioInline2">2</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline3" name="customRadioInline1" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadioInline3">3</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline4" name="customRadioInline1" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadioInline4">4</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline5" name="customRadioInline1" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadioInline5">5</label>
+                </div>
+            </div>
+            <div class="form-group align-items-center">
+                <label>¿Los expositores mostraron tener dominio del tema?</label>
+            </div>
+            <div class="form-group align-items-center">
+                <label>Puntuacion: </label>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline6" name="customRadioInline1" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadioInline6">1</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline7" name="customRadioInline1" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadioInline7">2</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline8" name="customRadioInline1" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadioInline8">3</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline9" name="customRadioInline1" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadioInline9">4</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline10" name="customRadioInline1" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadioInline10">5</label>
+                </div>
+            </div>
+            <div class="form-group align-items-center">
+                <label>¿Las instalaciones del evento fueron confortables para usted?</label>
+            </div>
+            <div class="form-group align-items-center">
+                <label>Puntuacion: </label>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline11" name="customRadioInline1" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadioInline11">1</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline12" name="customRadioInline1" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadioInline12">2</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline13" name="customRadioInline1" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadioInline13">3</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline14" name="customRadioInline1" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadioInline14">4</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline15" name="customRadioInline1" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadioInline15">5</label>
+                </div>
+            </div>
+            <div class="form-group align-items-center">
+                <label>¿Las instalaciones del evento fueron confortables para usted?</label>
+            </div>
+            <div class="form-group align-items-center">
+                <textarea type="text" id="comentario" placeholder="Coloque su comentario aqui" rows="4" cols="50"></textarea>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
