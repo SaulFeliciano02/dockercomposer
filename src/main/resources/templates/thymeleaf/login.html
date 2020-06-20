@@ -1,110 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<title>Inicio de Sesion</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="/login-static-files/images/icons/favicon.ico"/>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/login-static-files/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/login-static-files/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/vendor/login/animate/animate.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="/vendor/login/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/vendor/login/animsition/css/animsition.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/vendor/login/select2/select2.min.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="/vendor/login/daterangepicker/daterangepicker.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/login/util.css">
-	<link rel="stylesheet" type="text/css" href="css/login/main.css">
-<!--===============================================================================================-->
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <!-- Title Page-->
+    <title>BarCamp2020</title>
+
+    <!-- Icons font CSS-->
+    <link href="vendor/form/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="vendor/form/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="vendor/form/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/form/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="css/form/main.css" rel="stylesheet" media="all">
 </head>
+
 <body>
-	
-	<div class="limiter">
-		<div class="container-login100">
-			<div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
-				<form class="login100-form validate-form flex-sb flex-w">
-					<span class="login100-form-title p-b-32">
-						Inicio Sesion
-					</span>
+<div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+    <div class="wrapper wrapper--w790">
+        <div class="card card-5">
+            <div class="card-heading">
+                <h2 class="title">Acceso</h2>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="/homeUser">
+                    <div class="form-row m-b-55">
+                        <div class="name">Credenciales</div>
+                        <div class="value">
+                            <div class="row row-space">
+                                <div class="col-2">
+                                    <div class="input-group-desc">
+                                        <input class="input--style-5" type="email" name="first_name" required>
+                                        <label class="label--desc">Correo</label>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="input-group-desc">
+                                        <input class="input--style-5" type="password" name="last_name" required>
+                                        <label class="label--desc">Contraseña</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <button class="btn btn--radius-2 btn--red" type="submit">Acceder</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
-					<span class="txt1 p-b-11">
-						Nombre de Usuario
-					</span>
-					<div class="wrap-input100 validate-input m-b-36" data-validate = "Username is required">
-						<input class="input100" type="text" name="username" >
-						<span class="focus-input100"></span>
-					</div>
-					
-					<span class="txt1 p-b-11">
-						Contraseña
-					</span>
-					<div class="wrap-input100 validate-input m-b-12" data-validate = "Password is required">
-						<span class="btn-show-pass">
-							<i class="fa fa-eye"></i>
-						</span>
-						<input class="input100" type="password" name="pass" >
-						<span class="focus-input100"></span>
-					</div>
-					
-					<div class="flex-sb-m w-full p-b-48">
-						<div class="contact100-form-checkbox">
-							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-							<label class="label-checkbox100" for="ckb1">
-								Recordarme
-							</label>
-						</div>
+<!-- Jquery JS-->
+<script src="vendor/jquery/jquery.min.js"></script>
+<!-- Vendor JS-->
+<script src="vendor/form/select2/select2.min.js"></script>
+<script src="vendor/form/datepicker/moment.min.js"></script>
+<script src="vendor/form/datepicker/daterangepicker.js"></script>
 
-						<div>
-							<a href="#" class="txt3">
-								¿Olvido su contraseña?
-							</a>
-						</div>
-					</div>
+<!-- Main JS-->
+<script src="js/form/global.js"></script>
 
-					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
-							Acceder
-						</button>
-						<div></div>
-						<button class="login100-form-btn">
-							Registrarse
-						</button>
-					</div>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
-				</form>
-			</div>
-		</div>
-	</div>
-	
-
-	<div id="dropDownSelect1"></div>
-	
-<!--===============================================================================================-->
-	<script src="/vendor/login/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-	<script src="/vendor/login/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-	<script src="/vendor/login/bootstrap/js/popper.js"></script>
-	<script src="/vendor/login/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-	<script src="/vendor/login/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-	<script src="/vendor/login/daterangepicker/moment.min.js"></script>
-	<script src="/vendor/login/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
-	<script src="/vendor/login/countdowntime/countdowntime.js"></script>
-<!--===============================================================================================-->
-	<script src="js/login/main.js"></script>
-
-</body>
 </html>
+<!-- end document-->

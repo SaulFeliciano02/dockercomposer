@@ -14,4 +14,7 @@ public class TestController {
 
     @RequestMapping("/homeUser")
     public String pallogin() { return "thymeleaf/homeUser";}
+
+    @RequestMapping("/login")
+    public String login() { return "thymeleaf/login";}
 }

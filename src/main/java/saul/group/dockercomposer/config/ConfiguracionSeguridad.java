@@ -52,6 +52,7 @@ public class ConfiguracionSeguridad extends WebSecurityConfigurerAdapter {
                 .anyRequest().denyAll()//toda llamada debe ser validada
                 .and()
                 .formLogin()
+                .loginPage("/login").permitAll()
                 .defaultSuccessUrl("/homeUser")//redireccion por defecto de autentificacion correcta
                 .permitAll()
                 .and()
