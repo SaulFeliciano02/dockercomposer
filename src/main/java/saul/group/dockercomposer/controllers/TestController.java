@@ -9,7 +9,9 @@ public class TestController {
     @RequestMapping("/")
     public String pruebahome()
     {
-        return "thymeleaf/homeUser";
+        return "thymeleaf/index";
     }
 
+    @RequestMapping("/homeUser")
+    public String pallogin() { return "thymeleaf/homeUser";}
 }
