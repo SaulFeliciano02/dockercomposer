@@ -16,6 +16,10 @@ public class RoleServicio {
     @Autowired
     private RoleRepositorio roleRepositorio;
 
+    public Role getRoleByName(String name){
+        return roleRepositorio.getRoleByName(name);
+    }
+
     @Transactional
     public boolean crearRole(Role role){
         if(roleRepositorio.findById(role.getName()).equals(null)){

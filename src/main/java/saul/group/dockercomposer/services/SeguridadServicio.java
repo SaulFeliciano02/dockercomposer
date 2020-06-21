@@ -39,7 +39,7 @@ public class SeguridadServicio implements UserDetailsService {
                 Role roleUser = new Role("ROLE_USER");
                 roleRepositorio.save(roleUser);
 
-                Usuario usuario = new Usuario("admin",  bCryptPasswordEncoder.encode("admin"), new HashSet<>(Arrays.asList(roleAdmin)));
+                Usuario usuario = new Usuario("admin",  bCryptPasswordEncoder.encode("admin"), new HashSet<>(Arrays.asList(roleAdmin)), "admin", "admin");
                 usuarioRepositorio.save(usuario);
             }
 
