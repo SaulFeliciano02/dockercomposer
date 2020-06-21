@@ -22,6 +22,14 @@ public class UsuarioServicio {
         return usuarioRepositorio.findAll();
     }
 
+    public long getCount(){
+        return usuarioRepositorio.count();
+    }
+
+    public Usuario getUsuarioByUsernameAndPassword(String username, String password){
+        return usuarioRepositorio.findUsuarioByUsernameAndPassword(username, password);
+    }
+
     @Transactional
     public boolean crearUsuario(Usuario usuario){
         if(usuarioRepositorio.findById(usuario.getId()) != null){
