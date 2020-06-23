@@ -21,6 +21,8 @@ public class Usuario implements Serializable{
     private String passwordConfirm;
     private String nombre;
     private String apellido;
+    @Column(length = 2000)
+    private String comentario;
 
     public Usuario(){}
 
@@ -31,6 +33,7 @@ public class Usuario implements Serializable{
         this.activo = true;
         this.nombre = nombre;
         this.apellido = apellido;
+        this.comentario = "";
     }
 
     public long getId() {
@@ -91,5 +94,13 @@ public class Usuario implements Serializable{
 
     public String getNombre() {
         return nombre;
+    }
+
+    public String getComentario() {
+        return comentario;
+    }
+
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
     }
 }

@@ -30,12 +30,23 @@ public class UsuarioServicio {
         return usuarioRepositorio.findUsuarioByUsernameAndPassword(username, password);
     }
 
+    public Usuario getUsuarioByUsername(String username){
+        return usuarioRepositorio.findByUsername(username);
+    }
+
+    public boolean checkUser(String username){
+        if(usuarioRepositorio.findByUsername(username) != null){
+            return false;
+        }
+        return true;
+    }
+
     @Transactional
     public boolean crearUsuario(Usuario usuario){
         if(usuarioRepositorio.findById(usuario.getId()) != null){
             return false;
         }
-        usuario.setPassword(DigestUtils.md5Hex(usuario.getPassword()));
+        //usuario.setPassword(DigestUtils.md5Hex(usuario.getPassword()));
         usuarioRepositorio.save(usuario);
         return true;
     }

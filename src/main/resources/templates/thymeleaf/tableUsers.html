@@ -296,6 +296,13 @@
             </ul>
         </div>
     </div>
+
+    <div class="col-md-12">
+        <div class="col-md-6">
+            <canvas id="chartTest" width="1000" height="500"></canvas>
+        </div>
+    </div>
+
 </div>
 <!-- Add Modal HTML -->
 <div id="addEmployeeModal" class="modal fade">
@@ -318,7 +325,8 @@
                     <div class="form-group">
                         <label>Rol
                             <select name="role" required>
-                                <option>-Elegir rol-</option>
+                                <option>ROLE_USER</option>
+                                <option>ROLE_ADMIN</option>
                             </select>
                         </label>
                     </div>
@@ -352,7 +360,8 @@
                     <div class="form-group">
                         <label>Rol
                             <select id="rolEdit" class="form-control" required>
-                                <option>-Elegir rol-</option>
+                                <option>ROLE_USER</option>
+                                <option>ROLE_ADMIN</option>
                             </select>
                         </label>
                     </div>
@@ -399,6 +408,78 @@
     function delete_clicked(id) {
         document.getElementById("delete_form").setAttribute("action", "/usuarios/eliminar/" + id);
     }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+
+    var respuestas_1 = [[${respuestas_1}]];
+    var respuestas_2 = [[${respuestas_2}]];
+    var respuestas_3 = [[${respuestas_3}]];
+
+    var barChartData = {
+        labels: ['1', '2', '3', '4', '5'],
+        datasets: [{
+            label: 'Primera pregunta',
+            borderColor: 'rgb(255,0,0)',
+            borderWidth: 10,
+            data: [
+                respuestas_1[0],
+                respuestas_1[1],
+                respuestas_1[2],
+                respuestas_1[3],
+                respuestas_1[4]
+            ]
+        }, {
+            labels: ['1', '2', '3', '4', '5'],
+            datasets: [{
+                label: 'Segunda pregunta',
+                borderColor: 'rgb(0,255,0)',
+                borderWidth: 10,
+                data: [
+                    respuestas_2[0],
+                    respuestas_2[1],
+                    respuestas_2[2],
+                    respuestas_2[3],
+                    respuestas_2[4]
+                ]
+        }, {
+                labels: ['1', '2', '3', '4', '5'],
+                datasets: [{
+                    label: 'Tercera pregunta',
+                    borderColor: 'rgb(0,0,255)',
+                    borderWidth: 10,
+                    data: [
+                        respuestas_3[0],
+                        respuestas_3[1],
+                        respuestas_3[2],
+                        respuestas_3[3],
+                        respuestas_3[4]
+                    ]
+        }]
+
+    };
+
+    window.onload = function() {
+        var ctx = document.getElementById('chartTest').getContext('2d');
+        window.myBar = new Chart(ctx, {
+            type: 'bar',
+            data: barChartData,
+            options: {
+                responsive: true,
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Preguntas Estadisticas'
+                }
+            }
+        });
+
+    };
+    /*]]>*/
 </script>
 </body>
 </html>

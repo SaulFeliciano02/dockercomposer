@@ -47,7 +47,8 @@ public class ConfiguracionSeguridad extends WebSecurityConfigurerAdapter {
 //                .antMatchers("/home").hasAnyRole("ADMIN", "USER")
                 .antMatchers("/dbconsole/**").permitAll()
                 .antMatchers("/").permitAll()
-                .antMatchers("/homeUser").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
+                .antMatchers("/crearParticipante").permitAll()
+                .antMatchers("/homeUser/**").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
                 .antMatchers("/usuarios/**").hasAuthority("ROLE_ADMIN")
                 .anyRequest().denyAll()//toda llamada debe ser validada
                 .and()

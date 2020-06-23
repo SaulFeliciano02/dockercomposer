@@ -61,6 +61,7 @@ public class SeguridadServicio implements UserDetailsService {
      */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        System.out.println(username);
         Usuario user = usuarioRepositorio.findByUsername(username);
 
         Set<GrantedAuthority> roles = new HashSet<GrantedAuthority>();
