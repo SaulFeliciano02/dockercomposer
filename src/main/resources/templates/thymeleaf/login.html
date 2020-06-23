@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <!-- Required meta tags-->
@@ -34,20 +34,20 @@
                 <h2 class="title">Acceso</h2>
             </div>
             <div class="card-body">
-                <form method="POST" action="/homeUser">
+                <form method="POST" action="/login">
                     <div class="form-row m-b-55">
                         <div class="name">Credenciales</div>
                         <div class="value">
                             <div class="row row-space">
                                 <div class="col-2">
                                     <div class="input-group-desc">
-                                        <input class="input--style-5" type="email" name="first_name" required>
+                                        <input id="username" class="input--style-5" type="text" name="username" th:value="${correo}" required />
                                         <label class="label--desc">Correo</label>
                                     </div>
                                 </div>
                                 <div class="col-2">
                                     <div class="input-group-desc">
-                                        <input class="input--style-5" type="password" name="last_name" required>
+                                        <input id="password" class="input--style-5" type="password" name="password" th:value="${contrasena}" required />
                                         <label class="label--desc">Contraseña</label>
                                     </div>
                                 </div>

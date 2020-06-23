@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class TestController {
 
-    @RequestMapping("/")
+   /** @RequestMapping("/")
     public String pruebahome()
     {
         return "thymeleaf/index";
@@ -16,5 +16,5 @@ public class TestController {
     public String pallogin() { return "thymeleaf/homeUser";}
 
     @RequestMapping("/login")
-    public String login() { return "thymeleaf/login";}
+    public String login() { return "thymeleaf/login";}**/
 }
