@@ -299,7 +299,13 @@
 
     <div class="col-md-12">
         <div class="col-md-6">
-            <canvas id="chartTest" width="1000" height="500"></canvas>
+            <div id="drawChartAnswer1"></div>
+        </div>
+        <div class="col-md-6">
+            <div id="drawChartAnswer2"></div>
+        </div>
+        <div class="col-md-6">
+            <div id="drawChartAnswer3"></div>
         </div>
     </div>
 
@@ -410,7 +416,8 @@
     }
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<!--Load the AJAX API-->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script th:inline="javascript">
     /*<![CDATA[*/
 
@@ -418,67 +425,65 @@
     var respuestas_2 = [[${respuestas_2}]];
     var respuestas_3 = [[${respuestas_3}]];
 
-    var barChartData = {
-        labels: ['1', '2', '3', '4', '5'],
-        datasets: [{
-            label: 'Primera pregunta',
-            borderColor: 'rgb(255,0,0)',
-            borderWidth: 10,
-            data: [
-                respuestas_1[0],
-                respuestas_1[1],
-                respuestas_1[2],
-                respuestas_1[3],
-                respuestas_1[4]
-            ]
-        }, {
-            labels: ['1', '2', '3', '4', '5'],
-            datasets: [{
-                label: 'Segunda pregunta',
-                borderColor: 'rgb(0,255,0)',
-                borderWidth: 10,
-                data: [
-                    respuestas_2[0],
-                    respuestas_2[1],
-                    respuestas_2[2],
-                    respuestas_2[3],
-                    respuestas_2[4]
-                ]
-        }, {
-                labels: ['1', '2', '3', '4', '5'],
-                datasets: [{
-                    label: 'Tercera pregunta',
-                    borderColor: 'rgb(0,0,255)',
-                    borderWidth: 10,
-                    data: [
-                        respuestas_3[0],
-                        respuestas_3[1],
-                        respuestas_3[2],
-                        respuestas_3[3],
-                        respuestas_3[4]
-                    ]
-        }]
+    // Load the Visualization API and the corechart package.
+    google.charts.load('current', {'packages':['corechart']});
 
-    };
+    google.charts.setOnLoadCallback(drawChartAnswer1);
+    function drawChartAnswer1(){
+        var data = new google.visualization.DataTable();
+        data.addColumn('number', 'valor');
+        data.addColumn('number', 'cantidad votado')
+        for(var i = 0; i < 5; i++){
+            data.addRow([ i+1, respuestas_1[i] ])
+        }
+        var options = {
+            title: "Pregunta 1",
+            width: 600,
+            height: 400,
+            bar: {groupWidth: "95%"},
+            legend: { position: "none" },
+        };
+        var chart = new google.visualization.ColumnChart(document.getElementById("drawChartAnswer1"));
+        chart.draw(data, options);
+    }
 
-    window.onload = function() {
-        var ctx = document.getElementById('chartTest').getContext('2d');
-        window.myBar = new Chart(ctx, {
-            type: 'bar',
-            data: barChartData,
-            options: {
-                responsive: true,
-                legend: {
-                    position: 'top',
-                },
-                title: {
-                    display: true,
-                    text: 'Preguntas Estadisticas'
-                }
-            }
-        });
+    google.charts.setOnLoadCallback(drawChartAnswer2);
+    function drawChartAnswer2(){
+        var data = new google.visualization.DataTable();
+        data.addColumn('number', 'valor');
+        data.addColumn('number', 'cantidad votado')
+        for(var i = 0; i < 5; i++){
+            data.addRow([ i+1, respuestas_2[i] ])
+        }
+        var options = {
+            title: "Pregunta 2",
+            width: 600,
+            height: 400,
+            bar: {groupWidth: "95%"},
+            legend: { position: "none" },
+        };
+        var chart = new google.visualization.ColumnChart(document.getElementById("drawChartAnswer2"));
+        chart.draw(data, options);
+    }
 
-    };
+    google.charts.setOnLoadCallback(drawChartAnswer3);
+    function drawChartAnswer3(){
+        var data = new google.visualization.DataTable();
+        data.addColumn('number', 'valor');
+        data.addColumn('number', 'cantidad votado')
+        for(var i = 0; i < 5; i++){
+            data.addRow([ i+1, respuestas_3[i] ])
+        }
+        var options = {
+            title: "Pregunta 3",
+            width: 600,
+            height: 400,
+            bar: {groupWidth: "95%"},
+            legend: { position: "none" },
+        };
+        var chart = new google.visualization.ColumnChart(document.getElementById("drawChartAnswer3"));
+        chart.draw(data, options);
+    }
     /*]]>*/
 </script>
 </body>
