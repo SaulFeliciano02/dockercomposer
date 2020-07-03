@@ -37,12 +37,6 @@ public class UsuarioController {
     public String listaUsuarios(Model model){
         model.addAttribute("listaUsuarios", usuarioServicio.getUsuario());
 
-        respuestasServicio.createIfFirstRespuesta();
-        Respuesta respuesta = respuestasServicio.getRespuesta();
-        model.addAttribute("respuestas_1", respuesta.getQuestion_rating_1());
-        model.addAttribute("respuestas_2", respuesta.getQuestion_rating_2());
-        model.addAttribute("respuestas_3", respuesta.getQuestion_rating_3());
-
         return "thymeleaf/users";
     }
 
@@ -81,6 +75,17 @@ public class UsuarioController {
         request.getSession().setAttribute("contrasena", password);
 
         return new RedirectView("/login");
+    }
+
+    @RequestMapping("/estadisticas")
+    public String estadisticas(Model model){
+        respuestasServicio.createIfFirstRespuesta();
+        Respuesta respuesta = respuestasServicio.getRespuesta();
+        model.addAttribute("respuestas_1", respuesta.getQuestion_rating_1());
+        model.addAttribute("respuestas_2", respuesta.getQuestion_rating_2());
+        model.addAttribute("respuestas_3", respuesta.getQuestion_rating_3());
+
+        return "thymeleaf/statistics";
     }
 
 }

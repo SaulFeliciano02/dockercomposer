@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>BarCamp2020</title>
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/scrolling-nav.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel = "stylesheet" type = "text/css" href = "css/myStyle.css" />
+    <script type="text/javascript" src="js/animations.js"></script>
+
+</head>
+
+<body>
+<nav th:replace="thymeleaf/navbarForOtherTemplatesBesidesIndex :: navigation"></nav>
+<header th:replace="thymeleaf/homeUser :: header"></header>
+
+<div class="row">
+    <div class="col-md-6">
+        <div id="drawChartAnswer1"></div>
+    </div>
+    <div class="col-md-6">
+        <div id="drawChartAnswer2"></div>
+    </div>
+    <div class="col-md-6">
+        <div id="drawChartAnswer3"></div>
+    </div>
+</div>
+
+<!--Load the AJAX API-->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+
+    var respuestas_1 = [[${respuestas_1}]];
+    var respuestas_2 = [[${respuestas_2}]];
+    var respuestas_3 = [[${respuestas_3}]];
+
+    // Load the Visualization API and the corechart package.
+    google.charts.load('current', {'packages':['corechart']});
+
+    google.charts.setOnLoadCallback(drawChartAnswer1);
+    function drawChartAnswer1(){
+        var data = new google.visualization.DataTable();
+        data.addColumn('number', 'valor');
+        data.addColumn('number', 'cantidad votado')
+        for(var i = 0; i < 5; i++){
+            data.addRow([ i+1, respuestas_1[i] ])
+        }
+        var options = {
+            title: "Pregunta 1",
+            width: 600,
+            height: 400,
+            bar: {groupWidth: "95%"},
+            legend: { position: "none" },
+        };
+        var chart = new google.visualization.ColumnChart(document.getElementById("drawChartAnswer1"));
+        chart.draw(data, options);
+    }
+
+    google.charts.setOnLoadCallback(drawChartAnswer2);
+    function drawChartAnswer2(){
+        var data = new google.visualization.DataTable();
+        data.addColumn('number', 'valor');
+        data.addColumn('number', 'cantidad votado')
+        for(var i = 0; i < 5; i++){
+            data.addRow([ i+1, respuestas_2[i] ])
+        }
+        var options = {
+            title: "Pregunta 2",
+            width: 600,
+            height: 400,
+            bar: {groupWidth: "95%"},
+            legend: { position: "none" },
+        };
+        var chart = new google.visualization.ColumnChart(document.getElementById("drawChartAnswer2"));
+        chart.draw(data, options);
+    }
+
+    google.charts.setOnLoadCallback(drawChartAnswer3);
+    function drawChartAnswer3(){
+        var data = new google.visualization.DataTable();
+        data.addColumn('number', 'valor');
+        data.addColumn('number', 'cantidad votado')
+        for(var i = 0; i < 5; i++){
+            data.addRow([ i+1, respuestas_3[i] ])
+        }
+        var options = {
+            title: "Pregunta 3",
+            width: 600,
+            height: 400,
+            bar: {groupWidth: "95%"},
+            legend: { position: "none" },
+        };
+        var chart = new google.visualization.ColumnChart(document.getElementById("drawChartAnswer3"));
+        chart.draw(data, options);
+    }
+    /*]]>*/
+</script>
+
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom JavaScript for this theme -->
+<script src="js/scrolling-nav.js"></script>
+
+</body>
+
+<style th:insert="thymeleaf/tableUsers :: TableStyle"></style>
+
+</html>

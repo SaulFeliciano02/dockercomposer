@@ -50,6 +50,7 @@ public class ConfiguracionSeguridad extends WebSecurityConfigurerAdapter {
                 .antMatchers("/crearParticipante").permitAll()
                 .antMatchers("/homeUser/**").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
                 .antMatchers("/usuarios/**").hasAuthority("ROLE_ADMIN")
+                .antMatchers("/estadisticas").hasAuthority("ROLE_ADMIN")
                 .anyRequest().denyAll()//toda llamada debe ser validada
                 .and()
                 .formLogin()
