@@ -24,7 +24,7 @@ public class RespuestasController {
     @Autowired public UsuarioServicio usuarioServicio;
     @Autowired public RoleServicio roleServicio;
 
-   @RequestMapping("")
+    @RequestMapping("")
     public String display(Principal principal){
        Usuario usuario = usuarioServicio.getUsuarioByUsername(principal.getName());
        for (Iterator<Role> it = usuario.getRoles().iterator(); it.hasNext(); ) {

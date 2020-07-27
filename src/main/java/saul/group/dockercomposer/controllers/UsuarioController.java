@@ -1,6 +1,7 @@
 package saul.group.dockercomposer.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +17,7 @@ import saul.group.dockercomposer.services.RoleServicio;
 import saul.group.dockercomposer.services.UsuarioServicio;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Random;
@@ -27,9 +29,13 @@ public class UsuarioController {
     @Autowired public RoleServicio roleServicio;
     @Autowired public RespuestasServicio respuestasServicio;
     private BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+    @Value("${server.port}")
+    private int puerto;
 
     @RequestMapping("/")
-    public String inicio(){
+    public String inicio(Model model, HttpSession session){
+        String info = "Puerto " + puerto + " Sesion: " + session.getId();
+        model.addAttribute("info", info);
         return "thymeleaf/index";
     }
 

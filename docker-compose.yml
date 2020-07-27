@@ -5,7 +5,27 @@ services:
   app-web:       #nombre del servicio
     image: saulfeliciano/encuestaweb #imagen utilizada.
     ports:          #puertos que estaran expuestos.
-      - 80:8080
+      - 8080:8080
+    environment:    #variable de ambiente
+      - spring.datasource.url=jdbc:mysql://base-datos-app-web:3306/encuestaweb
+    networks:    #red para conectar los equipos.
+      - red-app
+    depends_on:   #indica que primero debe subir los servicios indicados.
+      - base-datos-app-web
+  app-web2:       #nombre del servicio
+    image: saulfeliciano/encuestaweb #imagen utilizada.
+    ports:          #puertos que estaran expuestos.
+      - 8081:8081
+    environment:    #variable de ambiente
+      - spring.datasource.url=jdbc:mysql://base-datos-app-web:3306/encuestaweb
+    networks:    #red para conectar los equipos.
+      - red-app
+    depends_on:   #indica que primero debe subir los servicios indicados.
+      - base-datos-app-web
+  app-web3:       #nombre del servicio
+    image: saulfeliciano/encuestaweb #imagen utilizada.
+    ports:          #puertos que estaran expuestos.
+      - 8082:8082
     environment:    #variable de ambiente
       - spring.datasource.url=jdbc:mysql://base-datos-app-web:3306/encuestaweb
     networks:    #red para conectar los equipos.
